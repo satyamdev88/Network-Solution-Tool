@@ -88,7 +88,8 @@ export class PingCheckerComponent {
     });
   }
 
-  startPingingContinuous() {
+  startPingingContinuous() {    
+    this.output = [];
     this.isVisible = true;
     this.isPingVisible = true;
     this.result = 'Work is in progress\nPlease use Ping once';

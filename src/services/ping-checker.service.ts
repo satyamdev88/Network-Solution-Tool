@@ -16,20 +16,11 @@ export class PingCheckerService {
         { responseType: 'text' }
       );
     } else {
-      return new Observable<string>((observer) => {
-      const eventSource = new EventSource(`http://localhost:3000/ping-continuous/${ip}`);
-
-      eventSource.onmessage = (event) => {
-        observer.next(event.data);
-      };
-
-      eventSource.onerror = (error) => {
-        observer.error(error);
-        eventSource.close();
-      };
-
-      return () => eventSource.close(); // auto clean on unsubscribe
-    });
+      return this.http.post(
+        'http://localhost:3000/ping-continuous',
+        { ip },
+        { responseType: 'text' }
+      );
     }
   }
 
