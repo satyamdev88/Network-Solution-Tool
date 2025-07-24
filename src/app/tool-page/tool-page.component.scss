@@ -1,0 +1,7 @@
+#CardShadow:hover{
+    box-shadow: 3px 3px 15px #005f73;
+    transform: scale(1.05);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    transition: 0.3s all ease-in-out;
+}

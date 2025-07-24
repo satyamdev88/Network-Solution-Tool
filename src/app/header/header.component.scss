@@ -1,0 +1,10 @@
+.nav-link:hover{
+    background: white !important;
+    color: #005f73!important;
+    box-shadow: 5px 5px 15px black;
+    transition: all .3s ease-in-out;
+}
+.navbar-toggler:focus{
+    border:none !important ;
+    box-shadow: none !important;
+}

@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="row">
+    <ng-container *ngFor="let tool of tools">
+      <div class="col-3"  *ngIf="tool.Name !== cardName">
+        <div class="card w-75 my-1" id="CardShadow"  (click)="openInNewTab(tool.PageUrl, tool.Name)">
+          <div class="card-body">
+           
+            <p class="card-text text-center"> <i class="{{tool.Icon}} me-2"></i>{{ tool.Name }}</p>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div>

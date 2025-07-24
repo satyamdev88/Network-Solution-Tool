@@ -1,0 +1,40 @@
+.font-design,.text-size{
+    font-family: "Quicksand", cursive !important;
+}
+.text-size{
+    font-size: 14px !important;
+}
+#ft-link{
+    background: transparent !important;
+    color: white !important;
+    outline: none;
+    border: none;
+}
+
+.ftr-cntct-frm{
+    border: 2px solid #005f73 ;
+    box-shadow: 2px 2px 10px #005f73;
+    outline: #005f73;
+}
+.form-control:focus{
+    box-shadow: 0 0 0 0.15rem #005f73 !important;
+}
+.btn{
+    background-color: #005f73 !important;
+    color: white !important;
+    outline: none !important;
+    border: none !important;
+}
+
+.btn:hover{
+    background-color: white !important;
+    color: #005f73 !important;
+    box-shadow: 2px 2px 10px #005f73;
+    transition: all .3s ease-in-out;
+}
+
+@media (max-width: 575px) {
+  .mt-xs-3 {
+    margin-top: 1rem; 
+  }
+}

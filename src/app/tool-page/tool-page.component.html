@@ -1,0 +1,26 @@
+<div class="bg-light">
+<div class="mx-5">
+<div class="overflow-hidden py-5">
+  <h5 class="fs-2 fw-bold">Our Networking Tools</h5>
+  <div style="height: 3px; width: 190px; background-color: #005f73; overflow: hidden;"></div>
+</div>
+<div class="pb-5 overflow-hidden">
+  <div class="row justify-content-start mb-5 ms-5">
+    <div class="col-auto my-md-3 mx-md-3 my-1 mx-0"  *ngFor="let tool of tools">
+      <div class="card mx-md-4 mx-3 bg-white" style="width: 13rem; height: 10rem;"
+        id="CardShadow" (click)="openInNewTab(tool.PageUrl,tool.Name)">
+        <img
+          src="{{ tool.ImageUrl }}"
+          class="card-img-top mt-3 mx-auto img-fluid"
+          alt="{{ tool.AltText }}"
+          style="width: 40%; height: 70px;"
+        />
+        <div class="card-body">
+          <p class="card-title fw-bold text-center">{{ tool.Name }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>

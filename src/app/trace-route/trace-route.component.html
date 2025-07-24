@@ -1,0 +1,18 @@
+<app-header></app-header>
+
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-md-5 text-center">
+        <h4 >Find the Trave route of an IP Address</h4>
+      <input
+        [(ngModel)]="ipAddress"
+        class="form-control"
+        placeholder="Enter IP or domain"
+      />
+      <button (click)="trace()" class="btn btn-primary mt-4">Trace Route</button>
+      <pre *ngIf="traceResult">{{ traceResult }}</pre>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>
