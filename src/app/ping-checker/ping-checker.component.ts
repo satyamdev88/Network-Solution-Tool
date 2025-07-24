@@ -27,9 +27,8 @@ export class PingCheckerComponent {
   isLoading: boolean = false;
   isVisible: boolean = false;
   result = '';
-  isPingVisible:boolean= false;
-  pingType = 'once'; 
-
+  isPingVisible: boolean = false;
+  pingType = 'once';
 
   constructor(private pingService: PingCheckerService) {}
 
@@ -53,22 +52,27 @@ export class PingCheckerComponent {
           return;
         }
       }
-      this.startPinging();
+      if (this.pingType === 'once') {
+        this.startPingingOnce();
+      } else {
+        this.startPingingContinuous();
+      }
     }
   }
 
-  startPinging() {
+  startPingingOnce() {
     this.isVisible = true;
     this.isLoading = true;
     this.isPingVisible = true;
-    this.result = "Pinging..."
-    this.pingService.ping(this.host).subscribe({
+    this.result = 'Pinging...';
+    this.output = [];
+    this.pingService.ping(this.host, this.pingType).subscribe({
       next: (res) => {
         if (res) {
           this.output.push(res);
           console.log(res);
           this.isLoading = false;
-          this.isPingVisible = false; 
+          this.isPingVisible = false;
         } else {
           this.output.push(`Request timed out.`);
         }
@@ -82,6 +86,13 @@ export class PingCheckerComponent {
         this.stopPinging();
       },
     });
+  }
+
+  startPingingContinuous() {
+    this.isVisible = true;
+    this.isPingVisible = true;
+    this.result = 'Work is in progress\nPlease use Ping once';
+
   }
 
   stopPinging() {
