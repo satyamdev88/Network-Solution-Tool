@@ -1,8 +1,8 @@
 <app-header></app-header>
-<div class="container my-5">
-  <div class="row">
+<div class="container">
+  <div class="row mt-3">
     <div class="col-md-5 col-sm-12">
-      <div class="mb-5 mt-2">
+      <div class="my-2">
         <h4 class="text-center mb-3 fw-bold">IP Subnet Calculator</h4>
         <p class="text-start fs-6 pb-2">
           This calculator returns information regarding Internet Protocol
@@ -10,7 +10,7 @@
           subnet mask, and IP class and others.
         </p>
       </div>
-      <div class="my-4 bg-white">
+      <div class="my-2 bg-white">
         <form action="" class="border rounded shadow p-5 pb-3">
           <h5 class="pt-2 fw-bold">IPv4 Subnet Calculator</h5>
           <div
@@ -26,7 +26,8 @@
             <div class="col-md-4 mt-3">
               <label for="" class="form-label fw-bold">
                 <i class="fas fa-network-wired"></i>
-                Subnet</label>
+                Subnet</label
+              >
             </div>
             <div class="col-md-7 mt-3">
               <select
@@ -44,7 +45,8 @@
             <div class="col-md-4">
               <label for="" class="form-label fw-bold">
                 <i class="fas fa-laptop-house"></i>
-                IP Address</label>
+                IP Address</label
+              >
             </div>
             <div class="col-md-7">
               <input
@@ -62,7 +64,7 @@
               (click)="Calculate()"
               [disabled]="!IPAddress || isLoading"
             >
-            <i class="fas fa-calculator"></i>
+              <i class="fas fa-calculator"></i>
               <span
                 *ngIf="isLoading"
                 class="spinner-border spinner-border-sm m-1 mx-4"
@@ -74,7 +76,7 @@
               class="btn btn-secondary m-2"
               (click)="getClear()"
             >
-            <i class="fas fa-eraser"></i>
+              <i class="fas fa-eraser"></i>
               Clear
             </button>
           </div>
@@ -86,7 +88,11 @@
         class="d-flex justify-content-center align-items-center text-center"
         style="height: 100%; width: 100%"
       >
-           <img src="../../assets/images/Output.png" alt="" style="width: 50%; height: 60%" />
+        <img
+          src="../../assets/images/Output.png"
+          alt=""
+          style="width: 50%; height: 60%"
+        />
       </div>
     </div>
 
@@ -104,7 +110,7 @@
       </table>
     </div>
   </div>
-  <div class="row">
+  <div class="row my-4">
     <app-tool-page-sm></app-tool-page-sm>
   </div>
 </div>

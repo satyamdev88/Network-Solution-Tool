@@ -6,8 +6,6 @@ import Swal from 'sweetalert2';
 import { SunbetValue } from '../../data/ipv4';
 import { HeaderComponent } from '../header/header.component';
 import { FooterComponent } from '../footer/footer.component';
-import { range } from 'rxjs';
-import { DataSenderService } from '../../services/data-sender.service';
 import { ToolPageSmComponent } from '../tool-page-sm/tool-page-sm.component';
 
 @Component({
@@ -45,13 +43,9 @@ export class Ipv4CalculatorComponent {
   IPClass: any;
   totalIP: { first: string; last: string } = { first: '', last: '' };
 
-  cardName: any;
-
-  constructor(private dataService: DataSenderService) {}
 
   ngOnInit(): void {
-    this.selectedSubnet = this.subnetValue[0].Value;
-    this.cardName = this.dataService.getCardName();
+   
   }
 
   Calculate() {

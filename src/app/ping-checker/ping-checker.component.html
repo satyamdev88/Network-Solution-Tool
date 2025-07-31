@@ -1,22 +1,22 @@
 <app-header></app-header>
-<div class="container my-5 overflow-hidden">
+<div class="container overflow-hidden">
   <div class="row">
     <div class="col-md-5 col-sm-12">
-      <div class="pt-3">
+      <div class="pt-4 mt-2">
         <h4 class="text-center mb-3 fw-bold">Ping Checker</h4>
         <p class="text-center fs-6">
           Ping checker is used for extracting information of host is reachable
           or not.
         </p>
       </div>
-      <div class="my-5">
+      <div class="mt-4">
         <form
           action=""
-          class="border rounded shadow p-5 pb-3 bg-white overflow-hidden"
+          class="border rounded shadow p-5 bg-white overflow-hidden"
         >
           <h5 class="pt-2 fw-bold">Ping Checker</h5>
           <div
-            class="mb-4"
+            class="mb-2"
             style="
               height: 3px;
               width: 70px;
@@ -24,8 +24,8 @@
               overflow: hidden;
             "
           ></div>
-          <div class="row my-3 pt-3">
-            <div class="col-md-10 offset-md-1 text-center mb-4">
+          <div class="row pt-3">
+            <div class="col-md-10 offset-md-1 text-center mb-3">
               <label for="" class="form-label fw-bold"
                 ><i class="fas fa-wave-square me-2"></i> Ping IP Address</label
               >
@@ -63,7 +63,7 @@
               </label>
             </div>
           </div>
-          <div class="row mb-4" *ngIf="pingType === 'once'">
+          <div class="row" *ngIf="pingType === 'once'">
             <div
               class="d-flex justify-content-center align-items-center text-center"
             >
@@ -84,7 +84,7 @@
               </button>
             </div>
           </div>
-          <div class="row mb-4" *ngIf="pingType === 'continuous'">
+          <div class="row" *ngIf="pingType === 'continuous'">
             <div
               class="d-flex justify-content-center align-items-center text-center"
             >
@@ -127,16 +127,18 @@
     <div class="col-md-6 col-sm-12 mt-5 offset-md-1" *ngIf="isVisible">
       <div
         class="d-flex justify-content-center align-items-center text-center"
-        style="height: 100%; height: 100%; overflow-y: scroll"
+        style="height: 100%; width: 100%; overflow-y: auto"
       >
-        <pre *ngIf="isPingVisible">{{ result }} </pre>
-        <span *ngFor="let line of output">
-          <pre>{{ line }} </pre>
-        </span>
+        <div  class="ping-output" style=" overflow-y: auto;max-height: 500px;">
+          <pre *ngIf="output.length ===0">{{ result }}</pre>
+        </div>
+        <div  #scrollContainer class="ping-output" style=" overflow-y: auto;max-height: 500px;">
+          <pre *ngFor="let line of output">{{ line }}</pre>
+        </div>
       </div>
     </div>
   </div>
-  <div class="row mt-3">
+  <div class="row my-5">
     <app-tool-page-sm></app-tool-page-sm>
   </div>
 </div>
