@@ -1,39 +1,46 @@
-<div class="bg-dark text-white py-4">
-    <div class="container mt-4 overflow-hidden">
-        <div class="row">
-            <div class="col-md-3 col-sm-5 mt-5"> 
-                <h5 class="font-design mb-4">Network Solutions</h5>
-                <p class="text-size">Save time and make work faster than as usual with <a class="text-white" href="">Network Solutions.</a>
-            </div>
-            <div class="col-md-3 col-sm-5 offset-md-2 offset-sm-2 pb-sm-5 mt-5">
-                <h5 class="font-design mb-4">Tools</h5>
-                <a class="nav-link" id="ft-link" *ngFor="let tool of tools; let i =index" href="{{tool.PageUrl}}">{{tool.Name}}</a>
-            </div>
-            <div class="col-md-4 col-sm-12">
-                <form action="" class="ftr-cntct-frm p-5 mt-5 rounded overflow-hidden">
-                    <h5 class=" font-design text-center mt-2 mb-4"> Get in Touch with Us</h5>
-                    <div class="row my-2">
-                      <div class="col">
-                            <input type="text" class="form-control" placeholder="First name" aria-label="First name">
-                      </div>
-                      <div class="col">
-                            <input type="text" class="form-control" placeholder="Last name" aria-label="Last name">
-                      </div>
-                    </div>
-                    <div class="row my-2">
-                        <div class="col-sm-12 my-2">
-                            <input type="email" placeholder="Email"  class="form-control" id="inputEmail3">
-                        </div>
-                    </div>
-                    <div class="mb-4 mt-2">
-                        <textarea class="form-control" placeholder="Write your query" rows="3"></textarea>
-                    </div>
-                    <div class="mt-2 text-center">
-                        <button type="button" class="btn btn-primary  px-md-5">Submit</button>
-                    </div>
-                </form>
-            </div>
+<footer class="bg-dark">
+    <div class="row text-white p-4 me-0">
+        <div class="col-xs-10 offset-xs-1 col-md-6 offset-md-1 col-lg-3 col-xl-3 offset-xl- mt-5">
+            <h5 class="font-design mb-4">Network Solutions</h5>
+            <p class="text-size">Save time and make work faster than as usual with <a class="text-white" href="#">Network
+                    Solutions.</a>
         </div>
-        <p class="card-text text-center fw-light font-monospace pt-3">Copyright &copy; All Right Reserved   <br>Developed by Satyam Pandey</p>
+        <div class="col-xs-10 offset-xs-1 col-md-4 offset-md-1 col-lg-2 offset-lg-1 col-xl-2 offset-xl-1  mt-5">
+            <h5 class="font-design mb-4">Tools</h5>
+            <a class="nav-link" id="ft-link" *ngFor="let tool of tools; let i =index"
+                href="{{tool.PageUrl}}">{{tool.Name}}</a>
+        </div>
+        <div class="col-xs-10 offset-xs-1 col-md-8 offset-md-2 col-lg-5 offset-lg-0 col-xl-4 mt-5">
+            <form action="" class="ftr-cntct-frm p-5 rounded overflow-hidden">
+                <h5 class=" font-design text-center mt-2 mb-4"> Get in Touch with Us</h5>
+                <div class="row my-2">
+                    <div class="col">
+                        <input type="text" class="form-control" placeholder="First name" aria-label="First name">
+                    </div>
+                    <div class="col">
+                        <input type="text" class="form-control" placeholder="Last name" aria-label="Last name">
+                    </div>
+                </div>
+                <div class="row my-2">
+                    <div class="col-sm-12 my-2">
+                        <input type="email" placeholder="Email" class="form-control" id="inputEmail3">
+                    </div>
+                </div>
+                <div class="mb-4 mt-2">
+                    <textarea class="form-control" placeholder="Write your query" rows="3"></textarea>
+                </div>
+                <div class="mt-2 text-center">
+                    <button type="button" class="btn btn-primary  px-md-5">Submit</button>
+                </div>
+            </form>
+        </div>
     </div>
-</div>
+    <div class="row text-white pt-4 me-0">
+        <div class="col-8 offset-2">
+            <p class="text-center font-monospace pt-3" style="font-size: 12px;">Copyright &copy; All Right Reserved <br>Developed
+                by
+                SharvHavi Pvt. Ltd.</p>
+        </div>
+    </div>
+
+</footer>

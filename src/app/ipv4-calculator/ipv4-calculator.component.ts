@@ -45,8 +45,11 @@ export class Ipv4CalculatorComponent {
 
 
   ngOnInit(): void {
-   
+    this.selectedSubnet = this.subnetValue[0].Value;
   }
+  // ngAfterViewInit(): void {
+  //   this.selectedSubnet = this.subnetValue[0].Value;
+  // }
 
   Calculate() {
     this.parts = this.IPAddress.split('.');
@@ -108,6 +111,7 @@ export class Ipv4CalculatorComponent {
       this.isLoading = false;
       this.isVisible = true;
     }, 1000);
+    console.log(this.myDict)
   }
 
   getBinarySubnetMask() {
@@ -153,53 +157,53 @@ export class Ipv4CalculatorComponent {
 
     if (a === 10) {
       this.IPType = 'Private';
-    }
-    if (a === 172 && b >= 16 && b <= 31) {
+    } else if (a === 172 && b >= 16 && b <= 31) {
       this.IPType = 'Private';
-    }
-    if (a === 192 && b === 168) {
+    } else if (a === 192 && b === 168) {
       this.IPType = 'Private';
-    }
-  }
-  getNetworkIP() {
-    const ipOctets = this.IPAddress.split('.').map(Number);
-    const maskOctets = this.identifiedSubnet.split('.').map(Number);
-    const networkOctets = ipOctets.map((octet, i) => octet & maskOctets[i]);
-    this.NetworkIP = networkOctets.join('.');
-  }
-
-  getUsableTotalHosts() {
-    this.totalHost = Math.pow(2, 32 - this.cidrValue);
-    if (this.cidrValue < 0 || this.cidrValue >= 32) {
-      this.usableHost = 0;
     } else {
-      this.usableHost = this.totalHost - 2;
+      this.IPType = 'Public';
     }
-  }
-  getHostRange(ip: string, subnet: string): { first: string; last: string } {
-    const ipParts = ip.split('.').map(Number);
-    const maskParts = subnet.split('.').map(Number);
-
-    const network = ipParts.map((p, i) => p & maskParts[i]);
-    const broadcast = ipParts.map((p, i) => p | (~maskParts[i] & 255));
-    if (this.usableHost < 2) {
-      return { first: 'N/A', last: 'N/A' };
+    }
+    getNetworkIP() {
+      const ipOctets = this.IPAddress.split('.').map(Number);
+      const maskOctets = this.identifiedSubnet.split('.').map(Number);
+      const networkOctets = ipOctets.map((octet, i) => octet & maskOctets[i]);
+      this.NetworkIP = networkOctets.join('.');
     }
 
-    network[3] += 1;
-    broadcast[3] -= 1;
+    getUsableTotalHosts() {
+      this.totalHost = Math.pow(2, 32 - this.cidrValue);
+      if (this.cidrValue < 0 || this.cidrValue >= 32) {
+        this.usableHost = 0;
+      } else {
+        this.usableHost = this.totalHost - 2;
+      }
+    }
+    getHostRange(ip: string, subnet: string): { first: string; last: string } {
+      const ipParts = ip.split('.').map(Number);
+      const maskParts = subnet.split('.').map(Number);
 
-    return {
-      first: network.join('.'),
-      last: broadcast.join('.'),
-    };
+      const network = ipParts.map((p, i) => p & maskParts[i]);
+      const broadcast = ipParts.map((p, i) => p | (~maskParts[i] & 255));
+      if (this.usableHost < 2) {
+        return { first: 'N/A', last: 'N/A' };
+      }
+
+      network[3] += 1;
+      broadcast[3] -= 1;
+
+      return {
+        first: network.join('.'),
+        last: broadcast.join('.'),
+      };
+    }
+    getWildcardMask() {
+      const subnetOctets = this.identifiedSubnet.split('.').map(Number);
+      const wildcardOctets = subnetOctets.map((octet) => 255 - octet);
+      this.wildmaskCard = wildcardOctets.join('.');
+    }
+    getClear() {
+      window.location.reload();
+    }
   }
-  getWildcardMask() {
-    const subnetOctets = this.identifiedSubnet.split('.').map(Number);
-    const wildcardOctets = subnetOctets.map((octet) => 255 - octet);
-    this.wildmaskCard = wildcardOctets.join('.');
-  }
-  getClear() {
-    window.location.reload();
-  }
-}

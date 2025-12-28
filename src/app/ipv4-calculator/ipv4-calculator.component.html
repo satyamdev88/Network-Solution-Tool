@@ -1,7 +1,7 @@
 <app-header></app-header>
-<div class="container">
+<div class="container-fluid">
   <div class="row mt-3">
-    <div class="col-md-5 col-sm-12">
+    <div class="col-lg-4 offset-lg-1 col-md-5 offset-md-1 col-sm-12">
       <div class="my-2">
         <h4 class="text-center mb-3 fw-bold">IP Subnet Calculator</h4>
         <p class="text-start fs-6 pb-2">
@@ -13,28 +13,20 @@
       <div class="my-2 bg-white">
         <form action="" class="border rounded shadow p-5 pb-3">
           <h5 class="pt-2 fw-bold">IPv4 Subnet Calculator</h5>
-          <div
-            class="mb-4"
-            style="
+          <div class="mb-4" style="
               height: 3px;
               width: 170px;
               background-color: #005f73;
               overflow: hidden;
-            "
-          ></div>
+            "></div>
           <div class="row my-4">
             <div class="col-md-4 mt-3">
               <label for="" class="form-label fw-bold">
                 <i class="fas fa-network-wired"></i>
-                Subnet</label
-              >
+                Subnet</label>
             </div>
             <div class="col-md-7 mt-3">
-              <select
-                class="form-select"
-                [(ngModel)]="selectedSubnet"
-                name="subnet"
-              >
+              <select class="form-select" [(ngModel)]="selectedSubnet" name="subnet">
                 <option *ngFor="let value of subnetValue" [value]="value.Value">
                   {{ value.Value }}
                 </option>
@@ -45,37 +37,20 @@
             <div class="col-md-4">
               <label for="" class="form-label fw-bold">
                 <i class="fas fa-laptop-house"></i>
-                IP Address</label
-              >
+                IP Address</label>
             </div>
             <div class="col-md-7">
-              <input
-                type="text"
-                class="form-control fs-6"
-                name="IPAddress"
-                [(ngModel)]="IPAddress"
-                placeholder="Ex- 192.168.23.43"
-              />
+              <input type="text" class="form-control fs-6" name="IPAddress" [(ngModel)]="IPAddress"
+                placeholder="Ex- 192.168.23.43" />
             </div>
           </div>
           <div class="d-flex justify-content-center pt-2 pb-3">
-            <button
-              class="btn btn-success m-2"
-              (click)="Calculate()"
-              [disabled]="!IPAddress || isLoading"
-            >
+            <button class="btn btn-success m-2" (click)="Calculate()" [disabled]="!IPAddress || isLoading">
               <i class="fas fa-calculator"></i>
-              <span
-                *ngIf="isLoading"
-                class="spinner-border spinner-border-sm m-1 mx-4"
-              ></span>
+              <span *ngIf="isLoading" class="spinner-border spinner-border-sm m-1 mx-4"></span>
               {{ isLoading ? "" : "Calculate" }}
             </button>
-            <button
-              type="button"
-              class="btn btn-secondary m-2"
-              (click)="getClear()"
-            >
+            <button type="button" class="btn btn-secondary m-2" (click)="getClear()">
               <i class="fas fa-eraser"></i>
               Clear
             </button>
@@ -83,16 +58,9 @@
         </form>
       </div>
     </div>
-    <div class="col-md-6 col-sm-12 offset-md-1 mt-5" *ngIf="!isVisible">
-      <div
-        class="d-flex justify-content-center align-items-center text-center"
-        style="height: 100%; width: 100%"
-      >
-        <img
-          src="../../assets/images/Output.png"
-          alt=""
-          style="width: 50%; height: 60%"
-        />
+    <div class="offset-lg-1 col-md-6 col-sm-12 mt-5" *ngIf="!isVisible">
+      <div class="d-flex justify-content-center align-items-center text-center" style="height: 100%; width: 100%">
+        <img src="../../assets/images/Output.png" alt="" style="width: 50%; height: 60%" />
       </div>
     </div>
 
@@ -115,3 +83,93 @@
   </div>
 </div>
 <app-footer></app-footer>
+
+
+
+
+
+<!-- <app-header></app-header>
+<div class="container">
+  <div class="row mt-3">
+    <div class="col-md-5 col-sm-12">
+      <div class="my-2">
+        <h4 class="text-center mb-3 fw-bold">IP Subnet Calculator</h4>
+        <p class="text-start fs-6 pb-2">
+          This calculator returns information regarding Internet Protocol
+          version 4 (IPv4), possible network addresses, usable host ranges,
+          subnet mask, and IP class and others.
+        </p>
+      </div>
+      <div class="my-2 bg-white">
+        <form action="" class="border rounded shadow p-5 pb-3">
+          <h5 class="pt-2 fw-bold">IPv4 Subnet Calculator</h5>
+          <div class="mb-4" style="
+              height: 3px;
+              width: 170px;
+              background-color: #005f73;
+              overflow: hidden;
+            "></div>
+          <div class="row my-4">
+            <div class="col-md-4 mt-3">
+              <label for="" class="form-label fw-bold">
+                <i class="fas fa-network-wired"></i>
+                Subnet</label>
+            </div>
+            <div class="col-md-7 mt-3">
+              <select class="form-select" [(ngModel)]="selectedSubnet" name="subnet">
+                <option *ngFor="let value of subnetValue" [value]="value.Value">
+                  {{ value.Value }}
+                </option>
+              </select>
+            </div>
+          </div>
+          <div class="row my-4">
+            <div class="col-md-4">
+              <label for="" class="form-label fw-bold">
+                <i class="fas fa-laptop-house"></i>
+                IP Address</label>
+            </div>
+            <div class="col-md-7">
+              <input type="text" class="form-control fs-6" name="IPAddress" [(ngModel)]="IPAddress"
+                placeholder="Ex- 192.168.23.43" />
+            </div>
+          </div>
+          <div class="d-flex justify-content-center pt-2 pb-3">
+            <button class="btn btn-success m-2" (click)="Calculate()" [disabled]="!IPAddress || isLoading">
+              <i class="fas fa-calculator"></i>
+              <span *ngIf="isLoading" class="spinner-border spinner-border-sm m-1 mx-4"></span>
+              {{ isLoading ? "" : "Calculate" }}
+            </button>
+            <button type="button" class="btn btn-secondary m-2" (click)="getClear()">
+              <i class="fas fa-eraser"></i>
+              Clear
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="col-md-6 col-sm-12 offset-md-1 mt-5" *ngIf="!isVisible">
+      <div class="d-flex justify-content-center align-items-center text-center" style="height: 100%; width: 100%">
+        <img src="../../assets/images/Output.png" alt="" style="width: 50%; height: 60%" />
+      </div>
+    </div>
+
+    <div class="col-md-6 offset-md-1 col-sm-12" *ngIf="isVisible">
+      <table class="table table-striped">
+        <thead>
+          <th>Output :-</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of myDict | keyvalue">
+            <td>{{ item.key }}</td>
+            <td>{{ item.value }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="row my-4">
+    <app-tool-page-sm></app-tool-page-sm>
+  </div>
+</div>
+<app-footer></app-footer> -->

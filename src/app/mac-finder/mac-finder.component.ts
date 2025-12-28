@@ -26,7 +26,7 @@ export class MacFinderComponent {
   vendorData: { [key: string]: string } = {};
   isVisible: boolean = false;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
     this.http
@@ -52,7 +52,16 @@ export class MacFinderComponent {
     }
 
     setTimeout(() => {
-          this.isVisible = true;
+      this.isVisible = true;
     }, 500);
+  }
+
+  getClear() {
+    setTimeout(() => {
+      this.isVisible = true;
+      this.vendor = '';
+      this.macAddress = '';
+      this.isVisible = false;
+    }, 400);
   }
 }

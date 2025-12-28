@@ -12,46 +12,30 @@
       <div class="mt-4">
         <form action="" class="border rounded shadow p-5 pb-3 bg-white">
           <h5 class="pt-2 fw-bold">Traceroute</h5>
-          <div
-            class="mb-4"
-            style="
+          <div class="mb-4" style="
               height: 3px;
               width: 70px;
               background-color: #005f73;
               overflow: hidden;
-            "
-          ></div>
+            "></div>
           <div class="row my-3">
             <div class="col-md-10 offset-md-1 text-center mb-3">
-              <label for="" class="form-label fw-bold"
-                ><i class="fas fa-route"></i> Enter IP Address</label
-              >
-              <input
-                [(ngModel)]="ipAddress"
-                class="form-control text-center mt-3"
-                placeholder="8.8.8.8"
-                name="ipAddress"
-              />
+              <label for="" class="form-label fw-bold"><i class="fas fa-route"></i> Enter IP Address</label>
+              <input [(ngModel)]="ipAddress" class="form-control text-center mt-3" placeholder="8.8.8.8"
+                name="ipAddress" />
             </div>
           </div>
           <div class="row">
             <div class="col-12 mb-2 text-center">
-              <button
-                type="submit"
-                class="btn btn-success"
-                (click)="hostValidate()"
-                [disabled]="isFormInvalid || isLoading"
-              >
+              <button type="submit" class="btn btn-success" (click)="hostValidate()"
+                [disabled]="isFormInvalid || isLoading">
                 <ng-container *ngIf="!isLoading; else loadingTpl">
                   <i class="fas fa-route"></i>
                   Find Trace
                 </ng-container>
                 <ng-template #loadingTpl>
                   &nbsp;&nbsp;&nbsp;&nbsp;
-                  <span
-                    class="spinner-border spinner-border-sm"
-                    role="status"
-                  ></span>
+                  <span class="spinner-border spinner-border-sm" role="status"></span>
                   &nbsp;&nbsp;&nbsp;&nbsp;
                 </ng-template>
               </button>
@@ -65,15 +49,8 @@
       </div>
     </div>
     <div class="col-md-6 col-sm-12 offset-md-1" *ngIf="!isVisible">
-      <div
-        class="d-flex justify-content-center align-items-center text-center"
-        style="height: 100%; width: 100%"
-      >
-        <img
-          src="../../assets/images/Output.png"
-          alt=""
-          style="width: 50%; height: 60%"
-        />
+      <div class="d-flex justify-content-center align-items-center text-center" style="height: 100%; width: 100%">
+        <img src="../../assets/images/Output.png" alt="" style="width: 50%; height: 60%" />
       </div>
     </div>
     <div class="col-md-6 col-sm-12 mt-5 offset-md-1" *ngIf="isVisible">

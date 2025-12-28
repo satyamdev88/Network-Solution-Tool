@@ -44,7 +44,7 @@ export class PingCheckerComponent {
     private http: HttpClient
   ) {}
 
-  @ViewChild('scrollContainer') private scrollContainer!: ElementRef;
+  @ViewChild('scrollContainer') private scrollContainer: ElementRef | null = null;
 
   scrollToBottom() {
     setTimeout(() => {
@@ -120,6 +120,8 @@ export class PingCheckerComponent {
     this.eventSource = new EventSource(
       `http://localhost:3000/ping-stream?ip=${this.host}&id=${this.clientId}`
     );
+
+  
     this.eventSource.onmessage = (event) => {
       this.output.push(event.data);
       this.cd.detectChanges();
